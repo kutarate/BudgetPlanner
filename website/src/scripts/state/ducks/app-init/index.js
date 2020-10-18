@@ -3,9 +3,4 @@ import * as appInitTypes from './types';
 import * as appInitOperations from './operations';
 import * as appInitSelectors from './selectors';
 
-export {
-    appInitActions,
-    appInitTypes,
-    appInitOperations,
-    appInitSelectors
-};
+export { appInitActions, appInitTypes, appInitOperations, appInitSelectors };

@@ -1,1 +1,1 @@
-export const getIsAccordionOpen = (state) => (state.accordion.isOpen);
+export const getIsAccordionOpen = (state) => state.accordion.isOpen;

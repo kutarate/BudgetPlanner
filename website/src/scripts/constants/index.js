@@ -1,14 +1,14 @@
 export const THEMES = {
-    lightTheme: 'light-theme',
-    darkTheme: 'dark-theme'
-}
+  lightTheme: 'light-theme',
+  darkTheme: 'dark-theme',
+};
 
 export const PATHS = {
-    defaultPath: '/',
-    // set mainPath later
-    mainPath: '/'
-}
+  defaultPath: '/',
+  // set mainPath later
+  mainPath: '/',
+};
 
 export const CLASSNAMES = {
-    appInit: 'app-initialised'
-}
+  appInit: 'app-initialised',
+};
