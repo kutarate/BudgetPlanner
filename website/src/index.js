@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Root from './scripts/Root';
+import configureStore from './scripts/state/store';
+import * as initialState from './scripts/state/store/initialState';
+
+const rootElement = document.getElementById('root');
+const reduxStore = configureStore({ ...initialState });
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Root
+    store={reduxStore}
+  />,
+  rootElement
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
