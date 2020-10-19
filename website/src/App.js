@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { appInitActions } from './scripts/state/ducks/app-init';
+import { PATHS } from './scripts/constants';
+import MainNavigation from './scripts/views/components/accordion/mainNavigation/MainNavigation';
+import Accordion from './scripts/views/components/accordion/Accordion';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const mapDispatchToProps = (dispatch) => ({
+  initialiseApplication: () => {
+    dispatch(appInitActions.initialiseApplication());
+  }
+});
 
-export default App;
+const App = ({
+  initialiseApplication
+}) => {
+  useEffect(() => {
+    // TODO add conditions e.g. if (receivedDataFromAPI)
+    initialiseApplication();
+  }, [initialiseApplication]);
+  return <React.Fragment>
+    <Switch>
+      <MainNavigation />
+      <Route
+        exact
+        path={PATHS.defaultPath}
+        render={() => (
+          <Redirect
+            exact
+            from={PATHS.defaultPath}
+            to={PATHS.mainPath}
+            key="key-root"
+          />
+        )}
+      ></Route>
+    </Switch>
+    <Accordion 
+      ctaLabel="Click me"
+    />
+  </React.Fragment>
+};
+
+export default withRouter(
+  connect(null, mapDispatchToProps)(App)
+);

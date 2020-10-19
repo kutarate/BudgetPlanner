@@ -1,0 +1,1 @@
+export const TOGGLE_ACCORDION = 'TOGGLE_ACCORDION';
