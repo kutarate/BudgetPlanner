@@ -5,11 +5,11 @@ import App from '../App';
 import history from './history';
 
 const Root = ({ store }) => (
-    <Router history={history}>
-        <Provider store={store}>
-            <App />
-        </Provider>
-    </Router>
+  <Router history={history}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </Router>
 );
 
 export default Root;
