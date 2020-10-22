@@ -5,6 +5,7 @@ import { appInitActions } from './scripts/state/ducks/app-init';
 import { PATHS } from './scripts/constants';
 import MainNavigation from './scripts/views/components/mainNavigation/MainNavigation';
 import Accordion from './scripts/views/components/accordion/Accordion';
+import D3Example from './scripts/views/components/d3Example/D3Example';
 
 const mapDispatchToProps = (dispatch) => ({
   initialiseApplication: () => {
@@ -30,6 +31,7 @@ const App = ({ initialiseApplication }) => {
         ></Route>
       </Switch>
       <Accordion ctaLabel="Click me" />
+      <D3Example title="D3 Example" />
     </React.Fragment>
   );
 };
