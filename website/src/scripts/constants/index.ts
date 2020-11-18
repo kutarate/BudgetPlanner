@@ -4,9 +4,8 @@ export const THEMES = {
 };
 
 export const PATHS = {
-  defaultPath: '/',
-  // set mainPath later
   mainPath: '/',
+  tipsPath: '/tips'
 };
 
 export const CLASSNAMES = {
