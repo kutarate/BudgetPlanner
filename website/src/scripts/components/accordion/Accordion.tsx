@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { accordionActions } from '../../../state/ducks/accordion';
-import { getIsAccordionOpen } from '../../../state/ducks/accordion/selectors';
+import { accordionActions } from '../../state/ducks/accordion';
+import { getIsAccordionOpen } from '../../state/ducks/accordion/selectors';
 import { AccordionCTA, AccordionWrapper } from '../../styles/Accordion/StyledAccordion';
 
 interface AccordionProps {

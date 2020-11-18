@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { appInitActions } from './scripts/state/ducks/app-init';
 import { PATHS } from './scripts/constants';
-import MainNavigation from './scripts/views/components/mainNavigation/MainNavigation';
-import Accordion from './scripts/views/components/accordion/Accordion';
-import D3Example from './scripts/views/components/d3Example/D3Example';
+import MainNavigation from './scripts/components/mainNavigation/MainNavigation';
+import MainView from './scripts/views/MainView/MainView';
+import TipsView from './scripts/views/TipsView/TipsView';
 
 const mapDispatchToProps = (dispatch) => ({
   initialiseApplication: () => {
@@ -19,21 +19,12 @@ const App = ({ initialiseApplication }) => {
     initialiseApplication();
   }, [initialiseApplication]);
   return (
-    <React.Fragment>
-      <Switch>
+    <Router>
         <MainNavigation />
-        <Route
-          exact
-          path={PATHS.defaultPath}
-          render={() => (
-            <Redirect exact from={PATHS.defaultPath} to={PATHS.mainPath} key="key-root" />
-          )}
-        ></Route>
-      </Switch>
-      <Accordion ctaLabel="Click me" />
-      <D3Example title="D3 Example" />
-    </React.Fragment>
+        <Route path={PATHS.mainPath} exact component={MainView} />
+        <Route path={PATHS.tipsPath} exact component={TipsView} />
+    </Router>
   );
 };
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+export default connect(null, mapDispatchToProps)(App);
